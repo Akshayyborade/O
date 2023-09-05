@@ -23,7 +23,7 @@
 						</c:if>
 					</div>
 					<div class="card-body">
-					<form action="userRegister" method="post">
+					<form action="RegisterServlet" method="post">
 					<div class="mb-3">
 					<label>Enter Full Name</label>
 					<input type="text" name="fullName" class="form-control" >
