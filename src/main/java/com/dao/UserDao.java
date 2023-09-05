@@ -1,5 +1,6 @@
 package com.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,6 +31,22 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return f;
+	}
+	public User loginUser(String email, String password) {
+		User user = null;
+		try {
+			session = factory.openSession();
+			Query query = session.createQuery("from User where email=:em and password=:ps");
+			query.setParameter("em", email);
+			query.setParameter("ps", password);
+			user = (User)query.uniqueResult();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		    e.printStackTrace();
+		}
+		return user;
+		
 	}
      
 }
