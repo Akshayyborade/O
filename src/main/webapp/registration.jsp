@@ -10,6 +10,7 @@
 <%@include file="componant/allcss.jsp"%>
 </head>
 <body>
+<%@ include file="componant/navbar.jsp" %>
 <div class="container p-5">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
