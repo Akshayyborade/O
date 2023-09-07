@@ -8,6 +8,8 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.dialect.MySQLDialect;
 import org.hibernate.service.ServiceRegistry;
 
+import com.dao.TrainDao;
+import com.entity.Train;
 import com.entity.User;
 
 
@@ -35,7 +37,7 @@ public class Hibernetconfig {
 			configuration.setProperties(properties);
 			// Set more properties if needed
 			configuration.addAnnotatedClass(User.class);
-			
+			configuration.addAnnotatedClass(Train.class);
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
 

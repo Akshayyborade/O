@@ -29,8 +29,8 @@
 </head>
 <body>
 	<%@ include file="componant/navbar.jsp"%>
-<% Object str = Hibernetconfig.getSessionFactory();
-out.println(str);%>
+<!--<% Object str = Hibernetconfig.getSessionFactory();
+out.println(str);%>  -->
 	<div class="banner_section layout_padding">
 		<div id="main_slider" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">

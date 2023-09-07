@@ -17,14 +17,14 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="index.jsp"><i
+					aria-current="page" href="../index.jsp"><i
 						class="fa-solid fa-house"></i> Home</a></li>
 				<c:if test="${not empty loginUser}">
 					<li class="nav-item"><a class="nav-link active"
-						href="../home/add_expense.jsp"><i
-							class="fa-solid fa-indian-rupee-sign"></i>Book Ticket</a></li>
+						href="../user/reservation.jsp"><i
+							class="fa-solid fa-indian-rupee-sign"></i> Book Ticket</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						href="../home/view_expense.jsp"><i class="fa-solid fa-list"></i></i>
+						href="../user/cancellation.jsp"><i class="fa-solid fa-list"></i></i>
 							Cancel Ticket</a></li>
 				</c:if>
 
@@ -37,7 +37,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						href="../home/user_profile.jsp"><i
 							class="fa-solid fa-user-plus"></i> ${loginUser.fullName}</a></li>
-					<li class="nav-item"><a class="nav-link active" href="logOut"><i
+					<li class="nav-item"><a class="nav-link active" href="../LogoutServlet"><i
 							class="fa-solid fa-right-to-bracket"></i> Logout</a></li>
 				</c:if>
 				<c:if test="${empty loginUser }">
