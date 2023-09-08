@@ -44,7 +44,7 @@ body {
     left: 0;
     width: 80px;
     height: 80px;
-    background: crimson;
+    background: #ef5051;
     border-radius: 50%;
     transition: all 1s;
     z-index: 4;
@@ -95,9 +95,9 @@ body {
     outline: none;
     border: none;
     // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    background: crimson;
+    background: #ef5051;
     color: white;
-    text-shadow: 0 0 10px crimson;
+    text-shadow: 0 0 10px #ef5051;
     padding: 0 80px 0 20px;
     border-radius: 30px;
     box-shadow: 0 0 25px 0 crimson,
