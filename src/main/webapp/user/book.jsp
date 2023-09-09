@@ -20,11 +20,26 @@
 			<c:redirect url="../login.jsp"></c:redirect>
 		</c:if>
 		<%
-		int id = Integer.parseInt(request.getParameter("id"));
-		TrainDao dao = new TrainDao(Hibernetconfig.getSessionFactory());
-		Train train = dao.geTrain(id);
-		User user = (User)request.getAttribute("loginUser");
-		%>
+int id;
+try {
+    id = Integer.parseInt(request.getParameter("id"));
+} catch (NumberFormatException e) {
+    // Handle the case where 'id' parameter is not a valid integer
+    id = -1; // or any other default value or error handling logic
+}
+
+TrainDao dao = new TrainDao(Hibernetconfig.getSessionFactory());
+Train train = dao.geTrain(id);
+User user = (User) request.getAttribute("loginUser");
+
+// Check if 'train' is not null before accessing its properties
+String trainNo = (train != null) ? train.getTrainNo() : "";
+String trainName = (train != null) ? train.getTrainName() : "";
+String startTime = (train != null) ? train.getStartTime() : "";
+String endTime = (train != null) ? train.getEndTime() : "";
+%>
+
+
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<div class="card card-sh">
@@ -36,36 +51,42 @@
 						</c:if>
 					</div>
 					<div class="card-body">
-						<form action="userRegister" method="post">
+						<form action="../BookServlet" method="post">
 							<div class="mb-3">
 								<label>Your Name</label> <input type="text" name="fullName"
-									class="form-control"value="akshay">
+									class="form-control" value="akshay">
 							</div>
-							
+
 							<div class="mb-3">
-								<label>Train No</label> <input type="text" name="fullName"
-									class="form-control"value="<%=train.getTrainNo() %>"><label>Train Name</label> <input type="text" name="fullName"
-									class="form-control"value="<%=train.getTrainName() %>">
+								<label>Train No</label> <input type="text" name="trainNo"
+									class="form-control" value="<%=trainNo %>"><label>Train
+									Name</label> <input type="text" name="trainName" class="form-control"
+									value="<%=trainName %>">
 							</div>
 							<div class="mb-3">
-								<label>No Of Person</label> <input type="text" name="fullName"
+								<label>No Of Person</label> <input type="text" name="noPerson"
 									class="form-control">
 							</div>
 							<div class="mb-3">
-								<label>Class</label> <input type="email" name="email"
+								<label>Class</label> <select class="form-select"
+									aria-label="Default select example" name="class" required>
+
+									<option value="1st">I</option>
+									<option value="2nd">II</option>
+									<option value="3rd">II</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label>Date</label> <input type="date" name="date"
 									class="form-control">
 							</div>
 							<div class="mb-3">
-								<label>Date</label> <input type="password" name="password"
-									class="form-control">
+								<label>From</label> <input type="text" name="from"
+									class="form-control" value="<%=startTime %>">
 							</div>
 							<div class="mb-3">
-								<label>From</label> <input type="text" name="about"
-									class="form-control"value="<%=train.getStartTime() %>">
-							</div>
-							<div class="mb-3">
-								<label>Destination</label> <input type="text" name="about"
-									class="form-control"value="<%=train.getEndTime() %>">
+								<label>Destination</label> <input type="text" name="end"
+									class="form-control" value="<%=endTime %>">
 							</div>
 							<button class="btn btn-dark col-md-12">PAYMENT</button>
 						</form>

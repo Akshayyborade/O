@@ -14,14 +14,8 @@ public class Train {
 	private String trainName;
 	private String startTime;
 	private String endTime;
-	@ManyToOne
-	private User user;
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
+	
 	public Train() {
 		super();
 		// TODO Auto-generated constructor stub
